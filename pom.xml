@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pact-contract-consumer</groupId>
-    <artifactId>pact-contract-consumer</artifactId>
+    <groupId>api-microservice-contract-test</groupId>
+    <artifactId>api-microservice-contract-test</artifactId>
     <version>3.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>pact-contract-consumer</name>
+    <name>api-microservice-contract-test</name>
     <description>spring boot application acting as contract consumer</description>
 
     <parent>
@@ -47,42 +47,6 @@
             <version>${pact.version}</version>
         </dependency>
 
-        <!-- this dependency use for set the java-json path for mock api (HTTP) testing-->
-        <dependency>
-            <groupId>com.mashape.unirest</groupId>
-            <artifactId>unirest-java</artifactId>
-            <version>1.4.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- this dependency use for import the data in user class-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-
-        <!-- this dependency use for set the apache kafka-->
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <!-- this dependency use for making data-driven of json data-->
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-            <scope>test</scope>
-        </dependency>
-
-
-
-
     </dependencies>
 
     <build>
@@ -114,8 +78,8 @@
                 <artifactId>maven</artifactId>
                 <version>4.1.11</version>
                 <configuration>
-                    <pactDirectory>Message-Pact/</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
-                    <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
+                    <pactDirectory>HTTP-Pact</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+                    <pactBrokerUrl>http://localhost:9090</pactBrokerUrl>
                     <projectVersion>1.0.100</projectVersion> <!-- Defaults to ${project.version} -->
                     <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
                     <skipPactPublish>false</skipPactPublish> <!-- Defaults to false -->
