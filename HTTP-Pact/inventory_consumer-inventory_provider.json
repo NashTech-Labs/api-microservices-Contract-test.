@@ -1,0 +1,89 @@
+{
+  "provider": {
+    "name": "inventory_provider"
+  },
+  "consumer": {
+    "name": "inventory_consumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to save inventory",
+      "request": {
+        "method": "POST",
+        "path": "/api/inventory",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "locationName": "CHENNAI",
+          "quantity": 100,
+          "productName": "TV"
+        },
+        "matchingRules": {
+          "body": {
+            "$.locationName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.quantity": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "locationName": "CHENNAI",
+          "quantity": 100,
+          "productName": "TV"
+        },
+        "matchingRules": {
+          "body": {
+            "$.locationName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.quantity": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "create inventory"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.10"
+    }
+  }
+}
